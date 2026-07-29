@@ -36,7 +36,39 @@ Migraciones:
 - `0002_rls_policies.sql` — funciones de rol (`is_admin`, `is_superadmin`, `is_admin_or_super`), grants, RLS + políticas.
 - `0003_expose_schema.sql` — **agrega** `panelhito` a `pgrst.db_schemas` preservando los demás tenants y hace `notify pgrst, 'reload config'`.
 
-## Exponer el schema (ya hecho) y verificar
+## ⚠️ ACCIÓN PENDIENTE DE INFRAESTRUCTURA — reiniciar PostgREST
+
+La migración `0003` **ya agregó** `panelhito` a `pgrst.db_schemas` del rol `authenticator`
+(verificado: 76 schemas, incluye `panelhito`, sin pisar a los demás tenants). Sin embargo, en este
+servidor **PostgREST no recarga la config vía `NOTIFY`** porque el acceso a la base es solo a través
+de **pgbouncer (puerto 6432, modo transacción)**, que no entrega `LISTEN/NOTIFY`, y el puerto directo
+5432 no está expuesto.
+
+Por eso, hasta reiniciar PostgREST, la API REST responde:
+`PGRST106 Invalid schema: panelhito`, y la app cae a textos de respaldo.
+
+**Un solo paso de ops en `api.neura.com.py` lo resuelve** (elegir uno):
+
+```bash
+# a) Reiniciar el contenedor PostgREST (recomendado)
+docker compose restart rest        # o el nombre del servicio PostgREST en ese stack
+
+# b) O ejecutar el NOTIFY desde una conexión DIRECTA (no pgbouncer) con db-channel-enabled=true
+psql "postgresql://postgres:***@127.0.0.1:5432/postgres" -c "notify pgrst, 'reload config';"
+```
+
+Verificar que quedó expuesto (debe responder **200**, no 406):
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" \
+  -H "apikey: $NEXT_PUBLIC_SUPABASE_ANON_KEY" -H "Accept-Profile: panelhito" \
+  "$NEXT_PUBLIC_SUPABASE_URL/rest/v1/products?select=slug&limit=1"
+```
+
+Tras el reinicio, el sitio público y el admin muestran los datos reales automáticamente (no requiere
+cambios de código).
+
+## Exponer el schema (ya hecho a nivel de rol) y verificar
 
 La migración `0003` corre:
 

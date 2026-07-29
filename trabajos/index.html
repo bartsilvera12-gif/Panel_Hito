@@ -25,16 +25,17 @@
   .eyebrow { font-family: ui-monospace, Menlo, monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#2CC3EF; }
   h1 { font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:clamp(30px,5vw,52px); letter-spacing:-.03em; margin:14px 0 0; }
   .lead { margin:14px 0 0; max-width:60ch; color:#61717A; font-size:16px; font-weight:300; line-height:1.6; }
-  h2.sec { font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:22px; letter-spacing:-.02em; max-width:1320px; margin: clamp(30px,4vw,48px) auto 0; padding:0 clamp(20px,4vw,48px); }
-  .videos { max-width:1320px; margin: 18px auto 0; padding:0 clamp(20px,4vw,48px); display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:16px; }
-  .videos video { width:100%; border-radius:6px; background:#000; display:block; border:1px solid #D5DFE3; }
-  .grid { max-width:1320px; margin: 18px auto 0; padding: 0 clamp(20px,4vw,48px) clamp(56px,8vw,90px); column-gap:14px; columns: 4; }
+  .grid { max-width:1320px; margin: clamp(24px,3vw,36px) auto 0; padding: 0 clamp(20px,4vw,48px) clamp(56px,8vw,90px); column-gap:14px; columns: 4; }
   @media (max-width:1100px){ .grid{ columns:3; } }
   @media (max-width:720px){ .grid{ columns:2; } }
   @media (max-width:460px){ .grid{ columns:1; } }
-  .grid figure { margin:0 0 14px; break-inside: avoid; border:1px solid #D5DFE3; border-radius:6px; overflow:hidden; cursor:zoom-in; background:#E7EEF1; }
+  .grid figure { margin:0 0 14px; break-inside: avoid; border:1px solid #D5DFE3; border-radius:6px; overflow:hidden; background:#E7EEF1; position:relative; }
+  .grid figure.photo { cursor:zoom-in; }
   .grid img { width:100%; display:block; transition: transform .3s ease; }
-  .grid figure:hover img { transform: scale(1.03); }
+  .grid figure.photo:hover img { transform: scale(1.03); }
+  .grid video { width:100%; display:block; background:#000; }
+  .grid figure.vid { background:#000; }
+  .tag { position:absolute; top:10px; left:10px; z-index:2; background:rgba(0,42,59,.82); color:#2CC3EF; font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:5px 9px; border-radius:3px; pointer-events:none; }
   footer { background:#002A3B; color:#fff; padding: clamp(40px,5vw,60px) clamp(20px,4vw,48px) 30px; }
   .foot-in { max-width:1320px; margin:0 auto; display:flex; flex-wrap:wrap; gap:14px 28px; align-items:center; justify-content:space-between; }
   .foot-brand { display:flex; align-items:center; gap:12px; }
@@ -65,152 +66,144 @@
   <h1>Nuestros trabajos</h1>
   <p class="lead">Obras realizadas con paneles termoacústicos Panel Hito: viviendas, comercios, oficinas, galpones, cámaras frigoríficas e industria.</p>
 </div>
-<h2 class="sec">Videos</h2>
-<div class="videos">
-  <video controls preload="metadata" src="../uploads/galeria/video-01.mp4"></video>
-  <video controls preload="metadata" src="../uploads/galeria/video-02.mp4"></video>
-  <video controls preload="metadata" src="../uploads/galeria/video-03.mp4"></video>
-  <video controls preload="metadata" src="../uploads/galeria/video-04.mp4"></video>
-  <video controls preload="metadata" src="../uploads/galeria/video-05.mp4"></video>
-</div>
-<h2 class="sec">Fotos</h2>
 <div class="grid" id="grid">
-  <figure><img loading="lazy" src="../uploads/galeria/foto-001.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-002.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-003.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-004.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-005.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-006.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-007.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-008.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-009.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-010.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-011.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-012.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-013.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-014.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-015.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-016.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-017.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-018.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-019.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-020.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-021.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-022.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-023.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-024.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-025.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-026.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-027.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-028.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-029.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-030.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-031.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-032.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-033.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-034.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-035.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-036.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-037.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-038.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-039.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-040.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-041.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-042.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-043.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-044.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-045.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-046.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-047.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-048.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-049.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-050.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-051.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-052.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-053.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-054.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-055.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-056.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-057.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-058.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-059.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-060.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-061.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-062.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-063.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-064.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-065.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-066.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-067.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-068.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-069.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-070.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-071.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-072.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-073.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-074.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-075.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-076.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-077.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-078.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-079.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-080.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-081.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-082.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-083.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-084.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-085.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-086.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-087.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-088.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-089.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-090.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-091.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-092.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-093.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-094.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-095.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-096.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-097.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-098.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-099.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-100.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-101.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-102.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-103.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-104.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-105.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-106.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-107.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-108.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-109.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-110.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-111.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-112.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-113.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-114.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-115.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-116.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-117.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-118.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-119.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-120.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-121.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-122.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-123.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-124.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-125.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-126.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-127.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-128.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-129.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-130.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-131.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-132.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-133.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-134.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-135.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
-  <figure><img loading="lazy" src="../uploads/galeria/foto-136.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-001.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-002.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-003.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-004.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-005.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-006.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-007.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-008.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-009.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-010.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-012.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-013.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-014.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-015.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-017.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-018.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-019.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-020.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-021.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-022.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="vid"><span class="tag">Video</span><video controls preload="metadata" src="../uploads/galeria/video-01.mp4"></video></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-023.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-024.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-025.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-026.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-027.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-028.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-029.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-030.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-031.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-032.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-033.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-034.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-035.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-036.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-037.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-038.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-039.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-040.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-041.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-042.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-043.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-044.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="vid"><span class="tag">Video</span><video controls preload="metadata" src="../uploads/galeria/video-02.mp4"></video></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-045.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-046.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-047.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-048.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-049.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-050.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-051.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-052.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-053.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-054.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-055.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-056.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-057.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-058.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-059.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-060.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-061.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-062.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-063.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-064.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-065.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-066.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="vid"><span class="tag">Video</span><video controls preload="metadata" src="../uploads/galeria/video-03.mp4"></video></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-067.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-068.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-069.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-070.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-071.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-072.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-073.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-074.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-075.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-076.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-077.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-078.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-079.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-080.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-081.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-082.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-083.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-084.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-085.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-086.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-087.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-088.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="vid"><span class="tag">Video</span><video controls preload="metadata" src="../uploads/galeria/video-04.mp4"></video></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-089.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-090.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-091.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-092.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-093.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-094.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-095.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-096.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-097.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-098.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-099.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-100.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-101.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-102.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-103.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-104.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-105.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-106.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-107.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-108.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-109.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-110.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="vid"><span class="tag">Video</span><video controls preload="metadata" src="../uploads/galeria/video-05.mp4"></video></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-111.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-112.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-113.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-114.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-115.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-116.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-117.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-118.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-119.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-120.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-121.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-122.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-123.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-124.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-125.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-126.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-127.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-128.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-129.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-130.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-131.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-132.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-135.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
+  <figure class="photo"><img loading="lazy" src="../uploads/galeria/foto-136.jpg" alt="Obra realizada con paneles Panel Hito"></figure>
 </div>
 <div class="lb" id="lb">
   <button class="close" aria-label="Cerrar">&times;</button>
@@ -228,7 +221,7 @@
 </footer>
 <script>
   (function(){
-    var imgs = [].slice.call(document.querySelectorAll('#grid img'));
+    var imgs = [].slice.call(document.querySelectorAll('#grid figure.photo img'));
     var lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg'), lbcount = document.getElementById('lbcount');
     var idx = 0;
     function show(i){ idx=(i+imgs.length)%imgs.length; lbimg.src = imgs[idx].currentSrc || imgs[idx].src; lbcount.textContent=(idx+1)+' / '+imgs.length; }

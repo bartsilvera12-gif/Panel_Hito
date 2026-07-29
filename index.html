@@ -64,7 +64,6 @@
 <section id="inicio" data-screen-label="Hero" style="position: relative; min-height: 100svh; display: flex; align-items: flex-end; background: #002A3B; overflow: hidden;">
   <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(115deg, #0a3c4f 0 14px, #0d4457 14px 28px); opacity: 0.9;"></div>
   <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,42,59,0.92) 0%, rgba(0,42,59,0.70) 45%, rgba(0,42,59,0.96) 100%);"></div>
-  <span style="position: absolute; top: 100px; right: clamp(20px, 4vw, 48px); font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); border: 1px dashed rgba(255,255,255,0.18); padding: 6px 10px;">reemplazar · foto o video de cubierta</span>
   <canvas id="heroGrid" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
   <div style="position: absolute; top: 0; bottom: 0; left: clamp(20px, 4vw, 48px); width: 1px; background: linear-gradient(180deg, transparent, rgba(44,195,239,0.5), transparent);"></div>
 
@@ -147,7 +146,6 @@
         <img src="uploads/panel-cubierta.jpg" alt="Panel termoacústico para cubiertas apilado en obra" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div>
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">01</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); margin: 12px 0 0; letter-spacing: -0.02em;">Panel para cubiertas</h3>
         <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.66); font-weight: 300; max-width: 48ch;">Panel autoportante para techos con pendiente, pensado para reducir el ingreso de calor y resolver la cubierta en una sola operación.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 26px 0 0; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px;">
@@ -164,7 +162,6 @@
         <img src="uploads/panel-fachada.jpg" alt="Interior revestido con panel Panel Hito, terminación tipo madera" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div style="order: 1;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">02</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); margin: 12px 0 0; letter-spacing: -0.02em;">Panel para fachadas</h3>
         <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.66); font-weight: 300; max-width: 48ch;">Cerramiento vertical de junta oculta para muros y frentes, con terminación limpia y continua en interior y exterior.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 26px 0 0; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px;">
@@ -181,7 +178,6 @@
         <img src="uploads/panel-camara-frigorifica.jpg" alt="Cámara frigorífica construida con paneles Panel Hito, con puerta y rampa" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div>
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">03</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); margin: 12px 0 0; letter-spacing: -0.02em;">Panel para cámaras frigoríficas</h3>
         <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.66); font-weight: 300; max-width: 48ch;">Paneles con encastre para cámaras de frío y salas de proceso, orientados a mantener la temperatura y facilitar la higiene.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 26px 0 0; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px;">
@@ -195,13 +191,11 @@
 
     <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(20px, 3vw, 40px); padding-top: clamp(34px, 5vw, 60px);">
       <div style="border: 1px solid rgba(255,255,255,0.14); padding: 30px;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">04</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 24px; margin: 12px 0 0;">Paneles especiales</h3>
         <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.62); font-weight: 300;">Medidas, terminaciones o prestaciones particulares según los requerimientos del proyecto.</p>
         <a href="{{ waEspeciales }}" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 20px; color: #2CC3EF; font-size: 14px; font-weight: 500; min-height: 44px; align-items: center;">Consultar producto →</a>
       </div>
       <div style="border: 1px solid rgba(255,255,255,0.14); padding: 30px;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">05</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 24px; margin: 12px 0 0;">Accesorios y terminaciones</h3>
         <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.62); font-weight: 300;">Babetas, cumbreras, perfiles de cierre, tornillería y sellos para completar la instalación.</p>
         <a href="{{ waAccesorios }}" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 20px; color: #2CC3EF; font-size: 14px; font-weight: 500; min-height: 44px; align-items: center;">Consultar producto →</a>
@@ -396,25 +390,21 @@
     <div style="margin-top: clamp(40px, 6vw, 70px); position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(24px, 3vw, 40px);">
       <div data-reveal>
         <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 11px; height: 11px; border-radius: 50%; background: #2CC3EF; flex: none;"></span><span style="flex: 1; height: 1px; background: #C8D4D9;"></span></div>
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; margin-top: 20px; letter-spacing: 0.16em;">PASO 01</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 21px; margin: 10px 0 0;">Contanos sobre tu proyecto</h3>
         <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.65; color: #61717A; font-weight: 300;">Tipo de obra, superficie aproximada y ubicación.</p>
       </div>
       <div data-reveal>
         <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 11px; height: 11px; border-radius: 50%; background: #2CC3EF; flex: none;"></span><span style="flex: 1; height: 1px; background: #C8D4D9;"></span></div>
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; margin-top: 20px; letter-spacing: 0.16em;">PASO 02</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 21px; margin: 10px 0 0;">Analizamos tus necesidades</h3>
         <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.65; color: #61717A; font-weight: 300;">Revisamos requerimientos térmicos, acústicos y de montaje.</p>
       </div>
       <div data-reveal>
         <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 11px; height: 11px; border-radius: 50%; background: #2CC3EF; flex: none;"></span><span style="flex: 1; height: 1px; background: #C8D4D9;"></span></div>
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; margin-top: 20px; letter-spacing: 0.16em;">PASO 03</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 21px; margin: 10px 0 0;">Preparamos una propuesta</h3>
         <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.65; color: #61717A; font-weight: 300;">Línea de panel, accesorios y alcance de la provisión.</p>
       </div>
       <div data-reveal>
         <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 11px; height: 11px; border-radius: 50%; background: #2CC3EF; flex: none;"></span></div>
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; margin-top: 20px; letter-spacing: 0.16em;">PASO 04</div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 21px; margin: 10px 0 0;">Coordinamos provisión y entrega</h3>
         <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.65; color: #61717A; font-weight: 300;">Plazos y logística acordados con la obra.</p>
       </div>
@@ -531,11 +521,11 @@
       <p style="margin: 26px 0 0; font-size: 17px; line-height: 1.7; color: #61717A; max-width: 52ch; font-weight: 300; text-wrap: pretty;">En Panel Hito trabajamos para acercar soluciones constructivas eficientes, resistentes y adaptadas a las necesidades de cada proyecto. Acompañamos a profesionales, empresas y particulares desde la elección del panel hasta la provisión de los materiales.</p>
     </div>
     <div data-reveal style="display: grid; gap: 1px; background: #D5DFE3; border: 1px solid #D5DFE3; align-content: start;">
-      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">01</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Asesoramiento</span></div>
-      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">02</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Calidad</span></div>
-      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">03</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Cumplimiento</span></div>
-      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">04</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Innovación</span></div>
-      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">05</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Atención personalizada</span></div>
+      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Asesoramiento</span></div>
+      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Calidad</span></div>
+      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Cumplimiento</span></div>
+      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Innovación</span></div>
+      <div style="background: #FFFFFF; padding: 22px 26px; display: flex; align-items: center; gap: 16px;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px;">Atención personalizada</span></div>
     </div>
   </div>
 </section>
@@ -696,7 +686,6 @@
     </div>
     <div style="margin-top: clamp(36px, 5vw, 60px); padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center;">
       <span style="font-size: 12px; color: rgba(255,255,255,0.45);">{{ copyright }}</span>
-      <a href="#" style="font-size: 12px; color: rgba(255,255,255,0.45);" style-hover="color: #2CC3EF;">Aviso de privacidad</a>
     </div>
     <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 12px; color: rgba(255,255,255,0.45);">Desarrollado por <a href="https://neura.com.py" target="_blank" rel="noopener" style="color: #2CC3EF; font-weight: 600; letter-spacing: 0.02em;" style-hover="color: #7FDCF7;">NEURA</a></div>
   </div>

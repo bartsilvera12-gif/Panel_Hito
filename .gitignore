@@ -7,5 +7,16 @@ Thumbs.db
 
 # Node
 node_modules/
-package-lock.json
-package.json
+
+# Env (nunca commitear secretos)
+.env
+.env.local
+.env*.local
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Vercel
+.vercel

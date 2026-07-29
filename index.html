@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="uploads/PanelHito_isotipo_cian.svg">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -64,12 +65,11 @@
   <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(115deg, #0a3c4f 0 14px, #0d4457 14px 28px); opacity: 0.9;"></div>
   <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,42,59,0.92) 0%, rgba(0,42,59,0.70) 45%, rgba(0,42,59,0.96) 100%);"></div>
   <span style="position: absolute; top: 100px; right: clamp(20px, 4vw, 48px); font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); border: 1px dashed rgba(255,255,255,0.18); padding: 6px 10px;">reemplazar · foto o video de cubierta</span>
-  <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 88px 88px;"></div>
+  <canvas id="heroGrid" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
   <div style="position: absolute; top: 0; bottom: 0; left: clamp(20px, 4vw, 48px); width: 1px; background: linear-gradient(180deg, transparent, rgba(44,195,239,0.5), transparent);"></div>
 
   <div style="position: relative; width: 100%; max-width: 1320px; margin: 0 auto; padding: 140px clamp(20px, 4vw, 48px) 0;">
     <div data-reveal style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;">
-      <span style="width: 44px; height: 1px; background: #2CC3EF;"></span>
       <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #2CC3EF;">Paneles termoacústicos · Paraguay</span>
     </div>
     <h1 data-reveal style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(38px, 6.6vw, 92px); line-height: 1.02; letter-spacing: -0.035em; color: #FFFFFF; margin: 0; max-width: 16ch; text-wrap: balance;">Construí con mayor eficiencia, confort y protección</h1>
@@ -80,19 +80,15 @@
     </div>
     <div data-reveal style="margin-top: clamp(48px, 7vw, 88px); border-top: 1px solid rgba(255,255,255,0.14); display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));">
       <div style="padding: 24px 24px 30px 0; border-right: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.16em;">01</div>
         <div style="margin-top: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 17px; color: #FFFFFF;">Aislación térmica</div>
       </div>
       <div style="padding: 24px; border-right: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.16em;">02</div>
         <div style="margin-top: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 17px; color: #FFFFFF;">Reducción acústica</div>
       </div>
       <div style="padding: 24px; border-right: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.16em;">03</div>
         <div style="margin-top: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 17px; color: #FFFFFF;">Instalación rápida</div>
       </div>
       <div style="padding: 24px;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.16em;">04</div>
         <div style="margin-top: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 17px; color: #FFFFFF;">Alta durabilidad</div>
       </div>
     </div>
@@ -135,8 +131,9 @@
   </div>
 </section>
 
-<section id="productos" data-screen-label="Productos" style="background: #002A3B; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); color: #FFFFFF;">
-  <div style="max-width: 1320px; margin: 0 auto;">
+<section id="productos" data-screen-label="Productos" style="position: relative; overflow: hidden; background: #002A3B; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); color: #FFFFFF;">
+  <canvas id="productosGrid" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+  <div style="position: relative; z-index: 1; max-width: 1320px; margin: 0 auto;">
     <div data-reveal style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.16); padding-bottom: 34px;">
       <div>
         <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #2CC3EF;">Productos</div>
@@ -146,8 +143,8 @@
     </div>
 
     <article data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 64px); padding: clamp(34px, 5vw, 60px) 0; border-bottom: 1px solid rgba(255,255,255,0.12); align-items: center;">
-      <div style="aspect-ratio: 4/3; background: repeating-linear-gradient(115deg, #06384a 0 12px, #0a4155 12px 24px); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.12);">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); text-transform: uppercase;">imagen · panel cubierta</span>
+      <div style="aspect-ratio: 4/3; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
+        <img src="uploads/panel-cubierta.jpg" alt="Panel termoacústico para cubiertas apilado en obra" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div>
         <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">01</div>
@@ -163,8 +160,8 @@
     </article>
 
     <article data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 64px); padding: clamp(34px, 5vw, 60px) 0; border-bottom: 1px solid rgba(255,255,255,0.12); align-items: center;">
-      <div style="aspect-ratio: 4/3; background: repeating-linear-gradient(115deg, #06384a 0 12px, #0a4155 12px 24px); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.12); order: 2;">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); text-transform: uppercase;">imagen · panel fachada</span>
+      <div style="aspect-ratio: 4/3; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); order: 2;">
+        <img src="uploads/panel-fachada.jpg" alt="Interior revestido con panel Panel Hito, terminación tipo madera" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div style="order: 1;">
         <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">02</div>
@@ -180,8 +177,8 @@
     </article>
 
     <article data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 64px); padding: clamp(34px, 5vw, 60px) 0; border-bottom: 1px solid rgba(255,255,255,0.12); align-items: center;">
-      <div style="aspect-ratio: 4/3; background: repeating-linear-gradient(115deg, #06384a 0 12px, #0a4155 12px 24px); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.12);">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); text-transform: uppercase;">imagen · cámara frigorífica</span>
+      <div style="aspect-ratio: 4/3; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
+        <img src="uploads/panel-camara-frigorifica.jpg" alt="Cámara frigorífica construida con paneles Panel Hito, con puerta y rampa" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div>
         <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF; letter-spacing: 0.18em;">03</div>
@@ -264,8 +261,9 @@
   </div>
 </section>
 
-<section id="aplicaciones" data-screen-label="Aplicaciones" style="background: #002A3B; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); color: #FFFFFF;">
-  <div style="max-width: 1320px; margin: 0 auto;">
+<section id="aplicaciones" data-screen-label="Aplicaciones" style="position: relative; overflow: hidden; background: #002A3B; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); color: #FFFFFF;">
+  <canvas id="aplicacionesGrid" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+  <div style="position: relative; z-index: 1; max-width: 1320px; margin: 0 auto;">
     <div data-reveal style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between;">
       <div>
         <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #2CC3EF;">Aplicaciones</div>
@@ -273,67 +271,67 @@
       </div>
       <p style="max-width: 38ch; margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); font-weight: 300;">Pasá el cursor sobre cada tipo de obra para ver el detalle.</p>
     </div>
-    <div style="margin-top: clamp(36px, 5vw, 60px); display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.14);">
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">01</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Viviendas</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease; cursor: default;" style-hover="opacity: 1;">
+    <div style="margin-top: clamp(36px, 5vw, 60px); display: grid; grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); gap: 1px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.14);">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/vivienda.jpg" alt="Vivienda construida con paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Viviendas</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease; cursor: default;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Viviendas</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55; font-weight: 400;">Cubiertas más frescas y silenciosas, con obra limpia y plazos cortos.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">02</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Comercios</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/comercios.jpg" alt="Local comercial construido con paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Comercios</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Comercios</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Locales confortables y una terminación prolija a la vista del público.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">03</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Depósitos</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/depositos.jpg" alt="Depósito construido con paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Depósitos</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Depósitos</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Protección de la mercadería frente a los cambios de temperatura.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">04</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Galpones</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/galpones.jpg" alt="Interior de galpón industrial con cubierta de paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Galpones</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Galpones</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Grandes superficies cubiertas con menos estructura y montaje ágil.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">05</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Industrias</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/industria-nave.jpg" alt="Nave industrial revestida con paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Industrias</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Industrias</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Ambientes de producción más estables y con mejor control del ruido.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">06</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Cámaras frigoríficas</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/panel-camara-frigorifica.jpg" alt="Cámara frigorífica construida con paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Cámaras frigoríficas</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Cámaras frigoríficas</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Cerramientos pensados para sostener la cadena de frío.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">07</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Oficinas</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/oficinas.jpg" alt="Oficina construida con paneles Panel Hito" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Oficinas</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Oficinas</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Espacios de trabajo silenciosos y con menor carga térmica.</p>
         </div>
       </div>
-      <div data-reveal style="position: relative; background: #002A3B; aspect-ratio: 1; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #2CC3EF;">08</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin-top: 8px;">Agroindustria</div>
-        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 300ms ease;" style-hover="opacity: 1;">
+      <div data-reveal style="position: relative; overflow: hidden; background: #002A3B; aspect-ratio: 4/3; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="uploads/industrias.jpg" alt="Nave agroindustrial con cubierta de paneles Panel Hito, vista aérea" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 21px; text-shadow: 0 1px 16px rgba(0,42,59,0.9), 0 1px 4px rgba(0,0,0,0.5);">Agroindustria</div>
+        <div style="position: absolute; inset: 0; background: #2CC3EF; color: #002A3B; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; z-index: 2; transition: opacity 300ms ease;" style-hover="opacity: 1;">
           <div style="font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Agroindustria</div>
           <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.55;">Naves de acopio y proceso con mejor comportamiento térmico.</p>
         </div>
@@ -429,44 +427,98 @@
     <div data-reveal style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between;">
       <div>
         <div style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #61717A;">Proyectos</div>
-        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(30px, 3.9vw, 54px); line-height: 1.08; letter-spacing: -0.03em; margin: 16px 0 0;">Tipos de obra</h2>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(30px, 3.9vw, 54px); line-height: 1.08; letter-spacing: -0.03em; margin: 16px 0 0;">Nuestros trabajos</h2>
       </div>
-      <p style="max-width: 40ch; margin: 0; font-size: 14px; line-height: 1.6; color: #61717A; font-weight: 300;">Espacios reservados para las fotografías de obras propias. Las imágenes actuales son marcadores de posición.</p>
+      <p style="max-width: 40ch; margin: 0; font-size: 14px; line-height: 1.6; color: #61717A; font-weight: 300;">Algunas de las obras realizadas con paneles termoacústicos Panel Hito: viviendas, comercios, oficinas, galpones e industria.</p>
     </div>
     <div style="margin-top: clamp(32px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(20px, 2.5vw, 32px);">
-      <article data-reveal style="border: 1px solid #D5DFE3;">
-        <div style="aspect-ratio: 4/3; background: repeating-linear-gradient(115deg, #E7EEF1 0 12px, #DCE6EA 12px 24px); display: flex; align-items: center; justify-content: center;">
-          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; letter-spacing: 0.12em; text-transform: uppercase;">foto obra 01</span>
-        </div>
-        <div style="padding: 24px;">
-          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Galpón industrial</div>
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 20px; margin: 10px 0 0;">Ubicación a completar</h3>
-          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.65; color: #61717A; font-weight: 300;">Descripción breve del alcance de la provisión.</p>
-          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #E4EAED; font-size: 13px; color: #61717A;">Producto utilizado: <span style="color: #002A3B;">a completar</span></div>
-        </div>
-      </article>
-      <article data-reveal style="border: 1px solid #D5DFE3;">
-        <div style="aspect-ratio: 4/3; background: repeating-linear-gradient(115deg, #E7EEF1 0 12px, #DCE6EA 12px 24px); display: flex; align-items: center; justify-content: center;">
-          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; letter-spacing: 0.12em; text-transform: uppercase;">foto obra 02</span>
-        </div>
-        <div style="padding: 24px;">
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-01.jpg" alt="Vivienda modular construida con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
           <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Vivienda</div>
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 20px; margin: 10px 0 0;">Ubicación a completar</h3>
-          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.65; color: #61717A; font-weight: 300;">Descripción breve del alcance de la provisión.</p>
-          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #E4EAED; font-size: 13px; color: #61717A;">Producto utilizado: <span style="color: #002A3B;">a completar</span></div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Vivienda modular</h3>
         </div>
       </article>
-      <article data-reveal style="border: 1px solid #D5DFE3;">
-        <div style="aspect-ratio: 4/3; background: repeating-linear-gradient(115deg, #E7EEF1 0 12px, #DCE6EA 12px 24px); display: flex; align-items: center; justify-content: center;">
-          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #61717A; letter-spacing: 0.12em; text-transform: uppercase;">foto obra 03</span>
-        </div>
-        <div style="padding: 24px;">
-          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Cámara frigorífica</div>
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 20px; margin: 10px 0 0;">Ubicación a completar</h3>
-          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.65; color: #61717A; font-weight: 300;">Descripción breve del alcance de la provisión.</p>
-          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #E4EAED; font-size: 13px; color: #61717A;">Producto utilizado: <span style="color: #002A3B;">a completar</span></div>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-02.jpg" alt="Casa llave en mano con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Vivienda</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Casa llave en mano</h3>
         </div>
       </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-03.jpg" alt="Vivienda con galería construida con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Vivienda</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Vivienda con galería</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-04.jpg" alt="Quincho y galería con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Quincho</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Quincho y galería</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-05.jpg" alt="Nave industrial con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Industria</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Nave industrial</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-06.jpg" alt="Galpón y depósito con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Galpón</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Galpón / depósito</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-07.jpg" alt="Local comercial con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Comercio</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Local comercial</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-08.jpg" alt="Local comercial tipo kiosco con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Comercio</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Local / kiosco</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-09.jpg" alt="Oficina modular con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Oficina</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Oficina modular</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-10.jpg" alt="Módulos de oficina con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Oficinas</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Módulos de oficina</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-11.jpg" alt="Galería con quincho con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Galería</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Galería con quincho</h3>
+        </div>
+      </article>
+      <article data-reveal style="border: 1px solid #D5DFE3; overflow: hidden;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;"><img src="uploads/trabajo-12.jpg" alt="Interior equipado con paneles Panel Hito" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="padding: 18px 20px;">
+          <div style="font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #2CC3EF;">Interior</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 8px 0 0;">Interior equipado</h3>
+        </div>
+      </article>
+    </div>
+    <div data-reveal style="margin-top: clamp(32px, 4vw, 48px); text-align: center;">
+      <a href="/trabajos" style="display: inline-flex; align-items: center; gap: 10px; background: #002A3B; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 16px 32px; border-radius: 2px; min-height: 44px;" style-hover="background: #2CC3EF; color: #002A3B;">Ver más trabajos<span style="font-size: 18px; line-height: 1;">&#8594;</span></a>
     </div>
   </div>
 </section>
@@ -527,8 +579,8 @@
   </div>
 </section>
 
-<section data-screen-label="CTA final" style="background: #002A3B; color: #FFFFFF; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); position: relative; overflow: hidden;">
-  <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 72px 72px;"></div>
+<section id="cta-final" data-screen-label="CTA final" style="background: #002A3B; color: #FFFFFF; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); position: relative; overflow: hidden;">
+  <canvas id="ctaGrid" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
   <div data-reveal style="position: relative; max-width: 900px; margin: 0 auto; text-align: center;">
     <img src="brand/PanelHito_cian.svg" alt="" style="width: 54px; height: 54px; opacity: 0.9;">
     <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: clamp(30px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -0.03em; margin: 26px 0 0; text-wrap: balance;">Encontrá la solución adecuada para tu proyecto</h2>
@@ -598,8 +650,9 @@
   </div>
 </section>
 
-<footer style="background: #002A3B; color: #FFFFFF; padding: clamp(56px, 7vw, 90px) clamp(20px, 4vw, 48px) 34px;">
-  <div style="max-width: 1320px; margin: 0 auto;">
+<footer id="site-footer" style="position: relative; overflow: hidden; background: #002A3B; color: #FFFFFF; padding: clamp(56px, 7vw, 90px) clamp(20px, 4vw, 48px) 34px;">
+  <canvas id="footerGrid" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+  <div style="position: relative; z-index: 1; max-width: 1320px; margin: 0 auto;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: clamp(30px, 4vw, 56px);">
       <div style="max-width: 34ch;">
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -645,10 +698,11 @@
       <span style="font-size: 12px; color: rgba(255,255,255,0.45);">{{ copyright }}</span>
       <a href="#" style="font-size: 12px; color: rgba(255,255,255,0.45);" style-hover="color: #2CC3EF;">Aviso de privacidad</a>
     </div>
+    <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 12px; color: rgba(255,255,255,0.45);">Desarrollado por <a href="https://neura.com.py" target="_blank" rel="noopener" style="color: #2CC3EF; font-weight: 600; letter-spacing: 0.02em;" style-hover="color: #7FDCF7;">NEURA</a></div>
   </div>
 </footer>
 
-<a href="{{ waGeneral }}" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp" style="position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 80; background: #2CC3EF; color: #002A3B; font-size: 14px; font-weight: 600; padding: 15px 22px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,42,59,0.28); min-height: 52px; display: inline-flex; align-items: center; gap: 10px;" style-hover="background: #7FDCF7;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #002A3B;"></span>WhatsApp</a>
+<a href="{{ waGeneral }}" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp" style="position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 80; background: #2CC3EF; color: #002A3B; font-size: 14px; font-weight: 600; padding: 15px 22px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,42,59,0.28); min-height: 52px; display: inline-flex; align-items: center; gap: 10px;" style-hover="background: #7FDCF7;"><svg width="19" height="19" viewBox="0 0 24 24" fill="#002A3B" aria-hidden="true" style="flex-shrink: 0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
 
 </div>
 
@@ -685,12 +739,217 @@ class Component extends DCLogic {
       el.style.transition = 'opacity 700ms cubic-bezier(.16,.84,.44,1) ' + Math.min(i % 4, 3) * 70 + 'ms, transform 700ms cubic-bezier(.16,.84,.44,1) ' + Math.min(i % 4, 3) * 70 + 'ms';
       this.io.observe(el);
     });
+    this._grids = [];
+    [['inicio', 'heroGrid'], ['productos', 'productosGrid'], ['aplicaciones', 'aplicacionesGrid'], ['cta-final', 'ctaGrid'], ['site-footer', 'footerGrid']].forEach(([sid, cid]) => {
+      const section = document.getElementById(sid);
+      const canvas = document.getElementById(cid);
+      if (section && canvas) this.initKineticGrid(section, canvas);
+    });
+  }
+
+  initKineticGrid(section, canvas) {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Paleta oficial Panel Hito: base sutil en blanco, activo en cian #2CC3EF (44,195,239)
+    const LINE_BASE = { r: 255, g: 255, b: 255, a: 0.05 };
+    const LINE_ACTIVE = { r: 44, g: 195, b: 239, a: 0.85 };
+    const NODE_BASE = { r: 255, g: 255, b: 255, a: 0.14 };
+    const NODE_ACTIVE = { r: 44, g: 195, b: 239, a: 1 };
+    const GLOW = '44,195,239';
+    const RIPPLE = '44,195,239';
+
+    const CELL_SIZE = 74;
+    const INFLUENCE_RADIUS = 240;
+    const MAX_WARP = 22;
+    const NODE_BASE_RADIUS = 1.6;
+    const NODE_ACTIVE_RADIUS = 3.0;
+    const LERP_SPEED = 0.09;
+
+    const mouse = { x: -9999, y: -9999 };
+    const target = { x: -9999, y: -9999 };
+    const ripples = [];
+    let W = 0, H = 0, dpr = 1, raf = 0;
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const lerpColor = (base, active, t) => {
+      const r = Math.round(lerp(base.r, active.r, t));
+      const g = Math.round(lerp(base.g, active.g, t));
+      const b = Math.round(lerp(base.b, active.b, t));
+      const a = lerp(base.a, active.a, t);
+      return 'rgba(' + r + ',' + g + ',' + b + ',' + a.toFixed(3) + ')';
+    };
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = section.clientWidth;
+      H = section.clientHeight;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+
+    const warp = (gx, gy, col, row, cols, rows) => {
+      const edge = 1.5;
+      const colPin = Math.min(col / edge, (cols - 1 - col) / edge, 1);
+      const rowPin = Math.min(row / edge, (rows - 1 - row) / edge, 1);
+      const pin = colPin * colPin * rowPin * rowPin;
+
+      const dx = gx - mouse.x, dy = gy - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const proximity = Math.max(0, 1 - dist / INFLUENCE_RADIUS) * pin;
+
+      let rx = 0, ry = 0;
+      for (const rp of ripples) {
+        const rdx = gx - rp.x, rdy = gy - rp.y;
+        const rdist = Math.sqrt(rdx * rdx + rdy * rdy);
+        const waveWidth = 55;
+        const diff = rdist - rp.radius;
+        if (Math.abs(diff) < waveWidth) {
+          const strength = (1 - Math.abs(diff) / waveWidth) * rp.opacity * 16 * pin;
+          const angle = Math.atan2(rdy, rdx);
+          const sign = diff < 0 ? -1 : 1;
+          rx += Math.cos(angle) * strength * sign * -1;
+          ry += Math.sin(angle) * strength * sign * -1;
+        }
+      }
+
+      if (dist < INFLUENCE_RADIUS && dist > 0 && pin > 0) {
+        const t = dist / INFLUENCE_RADIUS;
+        const eased = t < 0.01 ? 0 : (1 - t) * (1 - t) * Math.min(1, dist / 60);
+        const amt = eased * MAX_WARP * pin;
+        const angle = Math.atan2(dy, dx);
+        return { x: gx - Math.cos(angle) * amt + rx, y: gy - Math.sin(angle) * amt + ry, p: proximity };
+      }
+      return { x: gx + rx, y: gy + ry, p: proximity };
+    };
+
+    const draw = (now) => {
+      ctx.clearRect(0, 0, W, H);
+
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const rp = ripples[i];
+        const age = (now - rp.born) / 1000;
+        rp.radius = Math.max(0, age * 380);
+        rp.opacity = Math.max(0, 1 - age * 1.2);
+        if (rp.opacity <= 0) ripples.splice(i, 1);
+      }
+
+      const cols = Math.max(2, Math.ceil(W / CELL_SIZE)) + 1;
+      const rows = Math.max(2, Math.ceil(H / CELL_SIZE)) + 1;
+      const cellW = W / (cols - 1);
+      const cellH = H / (rows - 1);
+
+      const pts = [], prox = [];
+      for (let row = 0; row < rows; row++) {
+        pts[row] = []; prox[row] = [];
+        for (let col = 0; col < cols; col++) {
+          const wp = warp(col * cellW, row * cellH, col, row, cols, rows);
+          pts[row][col] = wp; prox[row][col] = wp.p;
+        }
+      }
+
+      const seg = (p1, p2, pr1, pr2) => {
+        const avg = (pr1 + pr2) / 2;
+        const t = avg * avg * (3 - 2 * avg);
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = lerpColor(LINE_BASE, LINE_ACTIVE, t);
+        ctx.lineWidth = lerp(0.7, 1.4, t);
+        ctx.stroke();
+      };
+
+      for (let row = 0; row < rows; row++)
+        for (let col = 0; col < cols - 1; col++)
+          seg(pts[row][col], pts[row][col + 1], prox[row][col], prox[row][col + 1]);
+      for (let col = 0; col < cols; col++)
+        for (let row = 0; row < rows - 1; row++)
+          seg(pts[row][col], pts[row + 1][col], prox[row][col], prox[row + 1][col]);
+
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          const p = pts[row][col];
+          const t = prox[row][col] * prox[row][col] * (3 - 2 * prox[row][col]);
+          const r = lerp(NODE_BASE_RADIUS, NODE_ACTIVE_RADIUS, t);
+          if (t > 0.3) {
+            const glowR = r + lerp(0, 6, (t - 0.3) / 0.7);
+            const grd = ctx.createRadialGradient(p.x, p.y, r * 0.5, p.x, p.y, glowR);
+            grd.addColorStop(0, 'rgba(' + GLOW + ',' + (t * 0.3).toFixed(3) + ')');
+            grd.addColorStop(1, 'rgba(' + GLOW + ',0)');
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+          ctx.fillStyle = lerpColor(NODE_BASE, NODE_ACTIVE, t);
+          ctx.fill();
+        }
+      }
+
+      for (const rp of ripples) {
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, Math.max(0, rp.radius), 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(' + RIPPLE + ',' + (rp.opacity * 0.28).toFixed(3) + ')';
+        ctx.lineWidth = 1.4;
+        ctx.stroke();
+      }
+    };
+
+    const loop = (now) => {
+      mouse.x = lerp(mouse.x, target.x, LERP_SPEED);
+      mouse.y = lerp(mouse.y, target.y, LERP_SPEED);
+      draw(now);
+      raf = requestAnimationFrame(loop);
+    };
+
+    resize();
+    const onResize = () => { resize(); if (reduce) draw(performance.now()); };
+    window.addEventListener('resize', onResize);
+
+    if (reduce) {
+      draw(performance.now());
+      (this._grids = this._grids || []).push({ onResize, io: null });
+      return;
+    }
+
+    section.addEventListener('mousemove', (e) => {
+      const rect = section.getBoundingClientRect();
+      target.x = e.clientX - rect.left;
+      target.y = e.clientY - rect.top;
+    });
+    section.addEventListener('mouseleave', () => {
+      target.x = -9999; target.y = -9999;
+    });
+    section.addEventListener('click', (e) => {
+      const rect = section.getBoundingClientRect();
+      ripples.push({ x: e.clientX - rect.left, y: e.clientY - rect.top, radius: 0, opacity: 1, born: performance.now() });
+    });
+
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((en) => {
+        if (en.isIntersecting && !raf) raf = requestAnimationFrame(loop);
+        else if (!en.isIntersecting && raf) { cancelAnimationFrame(raf); raf = 0; }
+      });
+    }, { threshold: 0 });
+    io.observe(section);
+
+    (this._grids = this._grids || []).push({ onResize, io });
+    raf = requestAnimationFrame(loop);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this._scroll);
     window.removeEventListener('resize', this._resize);
     if (this.io) this.io.disconnect();
+    (this._grids || []).forEach((g) => {
+      window.removeEventListener('resize', g.onResize);
+      if (g.io) g.io.disconnect();
+    });
   }
 
   applyLayout() {

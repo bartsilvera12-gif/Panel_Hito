@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import SectionsEditor from '@/components/admin/SectionsEditor';
 import { createClient } from '@/lib/supabase/server';
 import type { SiteSection } from '@/lib/types';
@@ -12,7 +13,7 @@ export default async function ContenidoPage() {
       <h1 className="mb-1 font-display text-2xl font-medium text-azul">Contenido de secciones</h1>
       <p className="mb-6 text-sm text-gris">
         Editá textos, botones y visibilidad de cada sección. La información de la empresa y el footer se editan en{' '}
-        <a href="/admin/configuracion" className="text-cian underline">Configuración</a>.
+        <Link href="/admin/configuracion" className="text-cian underline">Configuración</Link>.
       </p>
       <SectionsEditor initial={(data ?? []) as SiteSection[]} />
     </div>

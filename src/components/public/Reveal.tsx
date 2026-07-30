@@ -19,7 +19,7 @@ export default function Reveal({
       entries.forEach((e) => {
         if (e.isIntersecting) { el.classList.add('is-visible'); io.unobserve(el); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
     io.observe(el);
     return () => io.disconnect();
   }, []);

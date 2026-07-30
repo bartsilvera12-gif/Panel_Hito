@@ -64,11 +64,13 @@ export async function getProcess(): Promise<ProcessStep[]> {
   return (data as ProcessStep[]) ?? [];
 }
 
+// Proyectos que se muestran en el inicio: TODOS los publicados
+// (así lo que se carga desde el panel aparece sin tener que marcar "destacado").
 export async function getFeaturedProjects(): Promise<Project[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from('projects').select('*')
-    .eq('published', true).eq('featured_home', true).order('sort_order');
+    .eq('published', true).order('sort_order');
   return (data as Project[]) ?? [];
 }
 

@@ -1,28 +1,53 @@
 'use client';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
-  LayoutDashboard, FileText, Package, Sparkles, Grid3x3, Scale, ListOrdered,
-  FolderOpen, Images, HelpCircle, Inbox, Scroll, Settings, Users, LogOut, Menu, X,
+  LayoutDashboard, Package,
+  FolderOpen, Images, Tags, LogOut, Menu, X,
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import type { AdminRole } from '@/lib/types';
 
-const LINKS: { href: string; label: string; icon: React.ElementType; minRole?: AdminRole }[] = [
-  { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/contenido', label: 'Contenido', icon: FileText },
-  { href: '/admin/productos', label: 'Productos', icon: Package },
-  { href: '/admin/beneficios', label: 'Beneficios', icon: Sparkles },
-  { href: '/admin/aplicaciones', label: 'Aplicaciones', icon: Grid3x3 },
-  { href: '/admin/comparacion', label: 'Comparación', icon: Scale },
-  { href: '/admin/proceso', label: 'Proceso', icon: ListOrdered },
-  { href: '/admin/proyectos', label: 'Proyectos', icon: FolderOpen },
-  { href: '/admin/galeria', label: 'Galería', icon: Images },
-  { href: '/admin/preguntas', label: 'Preguntas', icon: HelpCircle },
-  { href: '/admin/consultas', label: 'Consultas', icon: Inbox },
-  { href: '/admin/legal', label: 'Legal', icon: Scroll },
-  { href: '/admin/configuracion', label: 'Configuración', icon: Settings, minRole: 'admin' },
-  { href: '/admin/usuarios', label: 'Usuarios', icon: Users, minRole: 'superadmin' },
+type NavItem = { href: string; label: string; icon: React.ElementType; minRole?: AdminRole };
+type Group = { title: string | null; links: NavItem[] };
+
+// Menú agrupado por temas para navegar más fácil.
+const GROUPS: Group[] = [
+  {
+    title: null,
+    links: [{ href: '/admin', label: 'Inicio', icon: LayoutDashboard }],
+  },
+  {
+    title: 'Contenido del sitio',
+    links: [
+      // { href: '/admin/contenido', label: 'Contenido', icon: FileText },
+      { href: '/admin/productos', label: 'Productos', icon: Package },
+      // { href: '/admin/beneficios', label: 'Beneficios', icon: Sparkles },
+      // { href: '/admin/aplicaciones', label: 'Aplicaciones', icon: Grid3x3 },
+      // { href: '/admin/comparacion', label: 'Comparación', icon: Scale },
+      // { href: '/admin/proceso', label: 'Proceso', icon: ListOrdered },
+    ],
+  },
+  {
+    title: 'Portafolio',
+    links: [
+      { href: '/admin/proyectos', label: 'Proyectos', icon: FolderOpen },
+      { href: '/admin/categorias', label: 'Categorías', icon: Tags },
+      { href: '/admin/galeria', label: 'Galería', icon: Images },
+      // { href: '/admin/preguntas', label: 'Preguntas', icon: HelpCircle },
+    ],
+  },
+  {
+    title: 'Administración',
+    links: [
+      // Ocultados del menú (las rutas siguen existiendo):
+      // { href: '/admin/consultas', label: 'Consultas', icon: Inbox },
+      // { href: '/admin/legal', label: 'Legal', icon: Scroll },
+      // { href: '/admin/configuracion', label: 'Configuración', icon: Settings, minRole: 'admin' },
+      // { href: '/admin/usuarios', label: 'Usuarios', icon: Users, minRole: 'superadmin' },
+    ],
+  },
 ];
 
 const rank: Record<AdminRole, number> = { editor: 1, admin: 2, superadmin: 3 };
@@ -38,7 +63,9 @@ export default function Sidebar({ role, name }: { role: AdminRole; name: string 
     router.refresh();
   };
 
-  const links = LINKS.filter((l) => !l.minRole || rank[role] >= rank[l.minRole]);
+  const groups = GROUPS
+    .map((g) => ({ ...g, links: g.links.filter((l) => !l.minRole || rank[role] >= rank[l.minRole]) }))
+    .filter((g) => g.links.length > 0);
 
   const content = (
     <div className="flex h-full flex-col">
@@ -50,16 +77,23 @@ export default function Sidebar({ role, name }: { role: AdminRole; name: string 
         </div>
       </div>
       <nav className="flex-1 overflow-y-auto px-3 py-2">
-        {links.map((l) => {
-          const active = pathname === l.href;
-          const Icon = l.icon;
-          return (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-              className={`mb-0.5 flex items-center gap-3 rounded-md px-3 py-2.5 text-[14px] transition ${active ? 'bg-cian text-azul font-semibold' : 'text-white/75 hover:bg-white/10 hover:text-white'}`}>
-              <Icon size={18} /> {l.label}
-            </a>
-          );
-        })}
+        {groups.map((g, gi) => (
+          <div key={g.title ?? `g${gi}`} className={gi > 0 ? 'mt-4' : ''}>
+            {g.title && (
+              <div className="px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-wider text-white/35">{g.title}</div>
+            )}
+            {g.links.map((l) => {
+              const active = pathname === l.href;
+              const Icon = l.icon;
+              return (
+                <Link key={l.href} href={l.href} prefetch onClick={() => setOpen(false)}
+                  className={`mb-0.5 flex items-center gap-3 rounded-md px-3 py-2.5 text-[14px] transition ${active ? 'bg-cian text-azul font-semibold' : 'text-white/75 hover:bg-white/10 hover:text-white'}`}>
+                  <Icon size={18} /> {l.label}
+                </Link>
+              );
+            })}
+          </div>
+        ))}
       </nav>
       <div className="border-t border-white/10 px-4 py-4">
         <div className="mb-2 truncate text-[13px] text-white/70">{name ?? 'Admin'} · <span className="uppercase text-cian">{role}</span></div>

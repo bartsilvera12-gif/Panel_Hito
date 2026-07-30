@@ -1,26 +1,28 @@
-import Link from 'next/link';
 import Header from '@/components/public/Header';
 import WhatsAppButton from '@/components/public/WhatsAppButton';
 import KineticGrid from '@/components/public/KineticGrid';
 import Reveal from '@/components/public/Reveal';
+import ProjectsGrid from '@/components/public/ProjectsGrid';
+import GalleryPreview from '@/components/public/GalleryPreview';
 import ContactForm from '@/components/public/ContactForm';
 import { mediaUrl, whatsappHref } from '@/lib/utils';
 import {
   getSiteSettings, getSections, getNavigation, getHeroHighlights, getProducts,
-  getBenefits, getApplications, getComparison, getProcess, getFeaturedProjects,
-  getCompanyValues, getFaqs, getContactProjectTypes,
+  getBenefits, getComparison, getProcess, getFeaturedProjects,
+  getCompanyValues, getFaqs, getContactProjectTypes, getGalleryMedia,
 } from '@/lib/queries';
 
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
   const [
-    settings, sections, nav, highlights, products, benefits, applications,
-    comparison, process, projects, values, faqs, projectTypes,
+    settings, sections, nav, highlights, products, benefits,
+    comparison, process, projects, values, faqs, projectTypes, galleryMedia,
   ] = await Promise.all([
     getSiteSettings(), getSections(), getNavigation('header'), getHeroHighlights(),
-    getProducts(), getBenefits(), getApplications(), getComparison(), getProcess(),
+    getProducts(), getBenefits(), getComparison(), getProcess(),
     getFeaturedProjects(), getCompanyValues(), getFaqs(), getContactProjectTypes(),
+    getGalleryMedia(),
   ]);
 
   const S = (k: string) => sections[k];
@@ -114,8 +116,6 @@ export default async function HomePage() {
                 {p.description && <p className="mt-3.5 max-w-[48ch] text-[16px] font-light leading-[1.7] text-white/65">{p.description}</p>}
                 <div className="mt-[26px] grid gap-4 border-t border-white/10 pt-5" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(150px,1fr))' }}>
                   {p.applications.length > 0 && <div><div className="font-mono text-[10px] uppercase tracking-[0.16em] text-gris">Aplicaciones</div><div className="mt-1.5 text-[14px] text-white/90">{p.applications.join(' · ')}</div></div>}
-                  {p.thickness_text && <div><div className="font-mono text-[10px] uppercase tracking-[0.16em] text-gris">Espesores</div><div className="mt-1.5 text-[14px] text-white/90">{p.thickness_text}</div></div>}
-                  {p.core_text && <div><div className="font-mono text-[10px] uppercase tracking-[0.16em] text-gris">Núcleo</div><div className="mt-1.5 text-[14px] text-white/90">{p.core_text}</div></div>}
                 </div>
                 <a href={whatsappHref(wa, p.whatsapp_message)} target="_blank" rel="noopener" className="mt-[26px] inline-flex min-h-[44px] items-center gap-2.5 rounded-sm border border-cian/60 px-[22px] py-[13px] text-[14px] font-medium text-cian transition hover:bg-cian hover:text-azul">
                   Consultar producto
@@ -138,31 +138,6 @@ export default async function HomePage() {
               <Reveal key={b.id} delay={(i % 3) * 70} className="rounded-sm border border-black/10 bg-white p-7">
                 <h3 className="font-display text-[19px] font-medium text-azul">{b.title}</h3>
                 {b.description && <p className="mt-2.5 text-[15px] font-light leading-[1.6] text-gris">{b.description}</p>}
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* APLICACIONES */}
-      <section id="aplicaciones" className="relative overflow-hidden bg-azul px-[clamp(20px,4vw,48px)] py-[clamp(72px,10vw,140px)] text-white">
-        <KineticGrid />
-        <div className="relative z-10 mx-auto max-w-[1320px]">
-          <Reveal className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <div className={eyebrowCls}>{S('aplicaciones')?.eyebrow ?? 'Aplicaciones'}</div>
-              <h2 className={`${h2Cls} mt-4 max-w-[18ch]`}>{S('aplicaciones')?.title ?? 'Dónde se usa el panel'}</h2>
-            </div>
-          </Reveal>
-          <div className="mt-[clamp(36px,5vw,60px)] grid gap-px border border-white/15 bg-white/15" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))' }}>
-            {applications.map((a) => (
-              <Reveal key={a.id} className="group relative flex flex-col justify-end overflow-hidden bg-azul p-[26px]" style={{ aspectRatio: '4/3' }}>
-                {a.image_path && <img src={mediaUrl(a.image_path)} alt={a.image_alt ?? a.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />}
-                <div className="relative z-[1] font-display text-[21px]" style={{ textShadow: '0 1px 16px rgba(0,42,59,0.9),0 1px 4px rgba(0,0,0,0.5)' }}>{a.title}</div>
-                <div className="absolute inset-0 z-[2] flex flex-col justify-end bg-cian p-[26px] text-azul opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="font-display text-[21px]">{a.title}</div>
-                  {a.description && <p className="mt-2 text-[14px] leading-[1.55]">{a.description}</p>}
-                </div>
               </Reveal>
             ))}
           </div>
@@ -218,35 +193,35 @@ export default async function HomePage() {
       </section>
 
       {/* PROYECTOS */}
-      <section id="proyectos" className="bg-white px-[clamp(20px,4vw,48px)] py-[clamp(72px,10vw,140px)]">
-        <div className="mx-auto max-w-[1320px]">
-          <Reveal className="flex flex-wrap items-end justify-between gap-5">
+      <section id="proyectos" className="relative overflow-hidden bg-azul px-[clamp(20px,4vw,48px)] py-[clamp(72px,10vw,140px)] text-white">
+        <KineticGrid />
+        <div className="relative z-10 mx-auto max-w-[1320px]">
+          <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <div className={`${eyebrowCls} text-gris`}>{S('proyectos')?.eyebrow ?? 'Proyectos'}</div>
-              <h2 className={`${h2Cls} mt-4 text-azul`}>{S('proyectos')?.title ?? 'Nuestros trabajos'}</h2>
+              <div className={eyebrowCls}>{S('proyectos')?.eyebrow ?? 'Proyectos'}</div>
+              <h2 className={`${h2Cls} mt-4 max-w-[18ch]`}>{S('proyectos')?.title ?? 'Nuestros trabajos'}</h2>
             </div>
-            {S('proyectos')?.description && <p className="max-w-[40ch] text-[14px] font-light leading-[1.6] text-gris">{S('proyectos').description}</p>}
+            {S('proyectos')?.description && <p className="max-w-[40ch] text-[14px] font-light leading-[1.6] text-white/60">{S('proyectos').description}</p>}
           </Reveal>
-          <div className="mt-[clamp(32px,4vw,56px)] grid gap-[clamp(20px,2.5vw,32px)]" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))' }}>
-            {projects.map((p) => (
-              <Reveal key={p.id} as="article" className="overflow-hidden rounded-md border border-black/10">
-                <div className="overflow-hidden" style={{ aspectRatio: '4/3' }}>
-                  {p.cover_image_path && <img src={mediaUrl(p.cover_image_path)} alt={p.cover_image_alt ?? p.title} loading="lazy" className="h-full w-full object-cover" />}
-                </div>
-                <div className="p-5">
-                  {p.category && <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-cian">{p.category}</div>}
-                  <h3 className="mt-2 font-display text-[18px] font-medium text-azul">{p.title}</h3>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-[clamp(32px,4vw,48px)] text-center">
-            <Link href="/trabajos" className="inline-flex min-h-[44px] items-center gap-2.5 rounded-sm bg-azul px-8 py-4 text-[15px] font-semibold text-white transition hover:bg-cian hover:text-azul">
-              Ver más trabajos →
-            </Link>
-          </Reveal>
+          <ProjectsGrid projects={projects} />
         </div>
       </section>
+
+      {/* GALERÍA */}
+      {galleryMedia.length > 0 && (
+        <section id="galeria" className="bg-claro px-[clamp(20px,4vw,48px)] py-[clamp(72px,10vw,140px)]">
+          <div className="mx-auto max-w-[1320px]">
+            <Reveal className="flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <div className={`${eyebrowCls} text-gris`}>{S('galeria')?.eyebrow ?? 'Galería'}</div>
+                <h2 className={`${h2Cls} mt-4 text-azul`}>{S('galeria')?.title ?? 'Obras en imágenes'}</h2>
+              </div>
+              {S('galeria')?.description && <p className="max-w-[40ch] text-[14px] font-light leading-[1.6] text-gris">{S('galeria').description}</p>}
+            </Reveal>
+            <GalleryPreview media={galleryMedia} />
+          </div>
+        </section>
+      )}
 
       {/* NOSOTROS */}
       <section id="nosotros" className="bg-claro px-[clamp(20px,4vw,48px)] py-[clamp(72px,10vw,140px)]">

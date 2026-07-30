@@ -5,6 +5,12 @@ const supabaseHost = (() => {
 })();
 
 const nextConfig = {
+  // Oculta el indicador "N" de Next.js en desarrollo.
+  devIndicators: false,
+  // Permite subir imágenes/videos por Server Actions (por defecto el límite es 1 MB).
+  experimental: {
+    serverActions: { bodySizeLimit: '50mb' },
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: supabaseHost },
